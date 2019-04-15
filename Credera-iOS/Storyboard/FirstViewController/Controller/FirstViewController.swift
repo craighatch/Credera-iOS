@@ -30,14 +30,27 @@ class FirstViewController: UIViewController {
         
         userService.getAllUsers().then { (users) in
             print(users)
-        }.catch { (error) in
-            // Handle error...
+            }.catch { (error) in
+                // Handle error...
         }
     }
     
     @IBAction func navigationExampleButtonClicked(_ sender: Any) {
         let navigationIntermediateScreen = NavigationIntermediateViewController.getInstance(passedInformation: passedAlongInformationBetweenVC, delegate: self)
         navigationController?.pushViewController(navigationIntermediateScreen, animated: true)
+    }
+    
+    @IBOutlet weak var gitHubUsername: UITextField!
+    
+    @IBAction func getRepos(_ sender: UIButton) {
+        print (gitHubUsername)
+        
+        let gitHubApi: GitHubApi = GitHubApi(caller: RequestCaller())
+        gitHubApi.getPublicRepos(forUsername: gitHubUsername.text!).then { (value) in
+                print(value)
+            }.catch { error in
+                print(error)
+        }
     }
     
 }
