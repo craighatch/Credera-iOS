@@ -43,16 +43,15 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var gitHubUsername: UITextField!
     
     @IBAction func getRepos(_ sender: UIButton) {
-        print (gitHubUsername)
-        
-        let gitHubApi: GitHubApi = GitHubApi(caller: RequestCaller())
-        gitHubApi.getPublicRepos(forUsername: gitHubUsername.text!).then { (value) in
-                print(value)
-            }.catch { error in
-                print(error)
+                let gitHubApi: GitHubApi = GitHubApi(caller: RequestCaller())
+                gitHubApi.getPublicRepos(forUsername: gitHubUsername.text).then { values in
+                    print(values.map {$0.name})
+                    let repoScreen = RepoController.getInstance(passedInformation: values.map {$0.name})
+                    self.navigationController?.pushViewController(repoScreen, animated: true)
+                    }.catch {error in
+                        print(error)
         }
     }
-    
 }
 
 extension FirstViewController: NavigationCompletedProtocol {

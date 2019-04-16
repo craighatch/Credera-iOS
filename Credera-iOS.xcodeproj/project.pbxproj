@@ -66,6 +66,8 @@
 		F41B0C9D22613BC4006EFB8E /* GitHubApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B0C9C22613BC4006EFB8E /* GitHubApi.swift */; };
 		F41B0C9F22613C23006EFB8E /* GitHubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B0C9E22613C23006EFB8E /* GitHubResponse.swift */; };
 		F41B0CA12264E4DA006EFB8E /* GitHubProviderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B0CA02264E4DA006EFB8E /* GitHubProviderConfig.swift */; };
+		F4616004226528EE006A3B72 /* Repo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4616003226528EE006A3B72 /* Repo.storyboard */; };
+		F461600722652902006A3B72 /* RepoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461600622652902006A3B72 /* RepoController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +158,8 @@
 		F41B0C9C22613BC4006EFB8E /* GitHubApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApi.swift; sourceTree = "<group>"; };
 		F41B0C9E22613C23006EFB8E /* GitHubResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubResponse.swift; sourceTree = "<group>"; };
 		F41B0CA02264E4DA006EFB8E /* GitHubProviderConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubProviderConfig.swift; sourceTree = "<group>"; };
+		F4616003226528EE006A3B72 /* Repo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Repo.storyboard; sourceTree = "<group>"; };
+		F461600622652902006A3B72 /* RepoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoController.swift; sourceTree = "<group>"; };
 		FF250F3FCF3A682573AA52AA /* Pods-Credera-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Credera-iOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Credera-iOSUITests/Pods-Credera-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -340,6 +344,7 @@
 		598E173B219CDA81002AC3EC /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				F4616002226528C7006A3B72 /* RepoController */,
 				598E173F219CDB04002AC3EC /* LaunchScreen */,
 				5910781421DD1F990017CA21 /* MainSinglePageApp */,
 				5910781321DD1F7C0017CA21 /* MainTabBarApp */,
@@ -561,6 +566,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F4616002226528C7006A3B72 /* RepoController */ = {
+			isa = PBXGroup;
+			children = (
+				F4616005226528F4006A3B72 /* Controller */,
+				F4616003226528EE006A3B72 /* Repo.storyboard */,
+			);
+			path = RepoController;
+			sourceTree = "<group>";
+		};
+		F4616005226528F4006A3B72 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F461600622652902006A3B72 /* RepoController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -676,6 +698,7 @@
 				5910781621DD1FC60017CA21 /* MainSinglePageApp.storyboard in Resources */,
 				AFD1E234223AA50A00131E4A /* NavigationFinal.storyboard in Resources */,
 				5910782C21DD28AF0017CA21 /* AppHeaderView.xib in Resources */,
+				F4616004226528EE006A3B72 /* Repo.storyboard in Resources */,
 				5949D1BA219CBBAE006D2FF0 /* LaunchScreen.storyboard in Resources */,
 				5949D1B7219CBBAE006D2FF0 /* Assets.xcassets in Resources */,
 				5910783721DD2B170017CA21 /* Second.storyboard in Resources */,
@@ -852,6 +875,7 @@
 				AFB6946022389FB2009473AE /* RequestCaller.swift in Sources */,
 				F41B0C9F22613C23006EFB8E /* GitHubResponse.swift in Sources */,
 				AFBD0D232242EB1F00123314 /* PhotosApiImpl.swift in Sources */,
+				F461600722652902006A3B72 /* RepoController.swift in Sources */,
 				5910782E21DD29410017CA21 /* XibView.swift in Sources */,
 				AFB6947C223AA9ED009473AE /* UserService.swift in Sources */,
 				AFBD0D122241B03400123314 /* HttpError.swift in Sources */,
