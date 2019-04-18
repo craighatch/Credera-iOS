@@ -36,7 +36,7 @@ class FirstViewController: UIViewController {
     }
     
     @IBAction func navigationExampleButtonClicked(_ sender: Any) {
-        let navigationIntermediateScreen = NavigationIntermediateViewController.getInstance(passedInformation: passedAlongInformationBetweenVC, delegate: self)
+        let navigationIntermediateScreen = NavigationIntermediateViewController.getInstance(passedInformation: passedAlongInformationBetweenVC, delegate: self as NavigationCompletedProtocol)
         navigationController?.pushViewController(navigationIntermediateScreen, animated: true)
     }
     
@@ -45,52 +45,33 @@ class FirstViewController: UIViewController {
     @IBAction func getRepos(_ sender: UIButton) {
         let userName: String = "craighatch"
         let gitHubService: GitHubService = GitHubService()
-        let giphyService: GiphyService = GiphyService()
+        let giphyService: GitHubGiphyIntegrationService = GitHubGiphyIntegrationService()
         
-        
-      gitHubService.getRepos(forUsername: userName , numberOfRepos: 5)
-        .then { repos in
-            gitHubService.populateCommonCommitWords(limitedTo: 5, withRepos: repos)
-                .then{
-                reposAndCommits in
-                    print(repo)
+        gitHubService.getRepos(forUsername: userName, numberOfRepos: 1)
+            .then { repos in
+                gitHubService.populateCommonCommitWords(limitedTo: 1, withRepos: repos)
+                    .then { reposAndCommits in
+                        giphyService.getImagesForAllReposAndCommits(withGitHubData: reposAndCommits)
+                            .then { gitHubAndGiphyData in
+                                self.goToCommitPage(gitHubAndGiphyData: gitHubAndGiphyData)
+                            }.catch { error in
+                                let gitGphyData =  reposAndCommits.map { GitHubAndGiphyData(withUserName: $0.userName, withRepoName: $0.repoName, withCommmitGiphyDetails: $0.commits.map { CommitGiphyDetails(commit: $0, imageLink: "https://www.keycdn.com/img/support/429-too-many-requests-lg@2x.webp") }) }
+                                self.goToCommitPage(gitHubAndGiphyData: gitGphyData)
+                        }
+                    }.catch { error in
+                        print(error)
+                }
+            }.catch { error in
+                print(error)
         }
     }
     
+    func goToCommitPage(gitHubAndGiphyData: [GitHubAndGiphyData]) {
+        let commitControllerScreen = CommitController.getInstance(gitHubGiphyDetails: gitHubAndGiphyData)
+        self.navigationController?.pushViewController(commitControllerScreen, animated: true)
+    }
     
-//    func getCommitsAndGiphyDetails(repoName: String, userName: String) -> [GiphyDetails] {
-//        let gitHubtservice: GitHubService = GitHubService()
-//        let giphyService: GiphyService = GiphyService()
-//        return gitHubtservice.getPopularCommitWords(limitedTo: 5, withUsername: userName, withRepoName: repoName).then{
-//            (commits) -> [GiphyDetails] in
-//            return commits.map{ giphyService.getGiphyImage(word: $0).then{
-//                (details) in
-//                return details
-//
-//                }
-//
-//            }
-//        }
-//    }
-//
-//
-//
-//    let gitHubApi: GitHubApi = GitHubApi(caller: RequestCaller())
-//    gitHubApi.getPublicRepos(forUsername: gitHubUsername.text!).then { values in
-//    print(values.map {$0.name})
-//    let repoScreen = RepoController.getInstance(passedInformation: values.map {$0.name})
-//    self.navigationController?.pushViewController(repoScreen, animated: true)
-//    }.catch {error in
-//    print(error)
-//    }
-}
-
-
-
-
-
-
-
+    
 }
 
 extension FirstViewController: NavigationCompletedProtocol {

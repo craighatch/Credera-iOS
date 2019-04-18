@@ -18,7 +18,6 @@ class RepoController: UIViewController, NavigationHelper, UITableViewDelegate, U
     var repos: [String] = []
     @IBOutlet weak var tableView: UITableView!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

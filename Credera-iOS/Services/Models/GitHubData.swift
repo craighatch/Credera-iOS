@@ -19,12 +19,10 @@ struct GitHubData {
     }
 }
 
-
 struct GitHubAndGiphyData {
     
-    
     var userName: String
-    var repoName:String
+    var repoName: String
     var commmitGiphyDetails: [CommitGiphyDetails]
     
     init(withUserName userName:String, withRepoName repoName:String, withCommmitGiphyDetails commmitGiphyDetails: [CommitGiphyDetails]) {
@@ -32,19 +30,13 @@ struct GitHubAndGiphyData {
         self.repoName = repoName
         self.commmitGiphyDetails = commmitGiphyDetails
     }
-    
-    
 }
-
-
-
-
 
 struct CommitGiphyDetails {
     var commit: String
     var imageLink: String
     
-    init(commit: String, imageLink: String){
+    init(commit: String, imageLink: String) {
         self.commit = commit
         self.imageLink = imageLink
     }

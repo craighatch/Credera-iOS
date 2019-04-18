@@ -23,13 +23,13 @@ class GitHubService {
     
     func getRepos(forUsername username: String, numberOfRepos repoLimit: Int) -> Promise<[GitHubData]> {
         return gitHubApi.getPublicRepos(forUsername: username).then { repos -> [GitHubData] in
-            return repos.prefix(repoLimit).map{GitHubData(withUserName: username, withRepoName: $0.name, withCommits: [])}
+            return repos.prefix(repoLimit).map {GitHubData(withUserName: username, withRepoName: $0.name, withCommits: [])}
         }
     }
     
     func populateCommonCommitWords(limitedTo limit: Int, withRepos gitHubData: [GitHubData]) -> Promise<[GitHubData]> {
         
-        let promises = gitHubData.map { getGitHubCommits(gitHubData: $0)}
+        let promises = gitHubData.map { getGitHubCommits(gitHubData: $0, limitedTo: limit)}
         
         return Promises.all(promises).then { repoAndCommitData in
             return repoAndCommitData
@@ -37,12 +37,12 @@ class GitHubService {
         
     }
     
-    func getGitHubCommits(gitHubData: GitHubData) -> Promise<GitHubData> {
+    func getGitHubCommits(gitHubData: GitHubData, limitedTo limit: Int) -> Promise<GitHubData> {
         return gitHubApi.getCommits(witUserName: gitHubData.userName, withRepoName: gitHubData.repoName).then { values in
             return GitHubData(
                 withUserName: gitHubData.userName,
                 withRepoName: gitHubData.repoName,
-                withCommits: self.createWordCountMap(gitHubRepoResponses: values)
+                withCommits: Array(self.createWordCountMap(gitHubRepoResponses: values).prefix(limit))
             )
             
         }
@@ -60,6 +60,6 @@ class GitHubService {
                 wordCount[word] = 1
             }
         }
-        return wordCount.sorted{$0.value < $1.value}.map{ $0.key }
+        return wordCount.sorted {$0.value > $1.value}.map { $0.key }
     }
 }
