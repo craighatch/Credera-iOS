@@ -68,6 +68,17 @@
 		F41B0CA12264E4DA006EFB8E /* GitHubProviderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B0CA02264E4DA006EFB8E /* GitHubProviderConfig.swift */; };
 		F4616004226528EE006A3B72 /* Repo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4616003226528EE006A3B72 /* Repo.storyboard */; };
 		F461600722652902006A3B72 /* RepoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461600622652902006A3B72 /* RepoController.swift */; };
+		F461600B226690FD006A3B72 /* RepoCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461600A226690FD006A3B72 /* RepoCellController.swift */; };
+		F461600D2267A349006A3B72 /* GitHubCommitMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461600C2267A349006A3B72 /* GitHubCommitMessage.swift */; };
+		F461600F2267A3BD006A3B72 /* GitHubRepoReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461600E2267A3BD006A3B72 /* GitHubRepoReponse.swift */; };
+		F46160132267C5A7006A3B72 /* CommitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46160122267C5A7006A3B72 /* CommitController.swift */; };
+		F46160152267C5CD006A3B72 /* CommitCollectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F46160142267C5CD006A3B72 /* CommitCollectionView.storyboard */; };
+		F46160172267CBD1006A3B72 /* GitHubData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46160162267CBD1006A3B72 /* GitHubData.swift */; };
+		F46160192267CE41006A3B72 /* GitHubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46160182267CE41006A3B72 /* GitHubService.swift */; };
+		F461601D2267DCD1006A3B72 /* GiphyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461601C2267DCD1006A3B72 /* GiphyResponse.swift */; };
+		F461601F2267DD6D006A3B72 /* GiphyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461601E2267DD6D006A3B72 /* GiphyApi.swift */; };
+		F46160212267DDB0006A3B72 /* GiphyProviderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46160202267DDAF006A3B72 /* GiphyProviderConfig.swift */; };
+		F46160252268F63F006A3B72 /* GitHubGiphyIntegrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46160242268F63F006A3B72 /* GitHubGiphyIntegrationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +171,17 @@
 		F41B0CA02264E4DA006EFB8E /* GitHubProviderConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubProviderConfig.swift; sourceTree = "<group>"; };
 		F4616003226528EE006A3B72 /* Repo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Repo.storyboard; sourceTree = "<group>"; };
 		F461600622652902006A3B72 /* RepoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoController.swift; sourceTree = "<group>"; };
+		F461600A226690FD006A3B72 /* RepoCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCellController.swift; sourceTree = "<group>"; };
+		F461600C2267A349006A3B72 /* GitHubCommitMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubCommitMessage.swift; sourceTree = "<group>"; };
+		F461600E2267A3BD006A3B72 /* GitHubRepoReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepoReponse.swift; sourceTree = "<group>"; };
+		F46160122267C5A7006A3B72 /* CommitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitController.swift; sourceTree = "<group>"; };
+		F46160142267C5CD006A3B72 /* CommitCollectionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommitCollectionView.storyboard; sourceTree = "<group>"; };
+		F46160162267CBD1006A3B72 /* GitHubData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubData.swift; sourceTree = "<group>"; };
+		F46160182267CE41006A3B72 /* GitHubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubService.swift; sourceTree = "<group>"; };
+		F461601C2267DCD1006A3B72 /* GiphyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyResponse.swift; sourceTree = "<group>"; };
+		F461601E2267DD6D006A3B72 /* GiphyApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyApi.swift; sourceTree = "<group>"; };
+		F46160202267DDAF006A3B72 /* GiphyProviderConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyProviderConfig.swift; sourceTree = "<group>"; };
+		F46160242268F63F006A3B72 /* GitHubGiphyIntegrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubGiphyIntegrationService.swift; sourceTree = "<group>"; };
 		FF250F3FCF3A682573AA52AA /* Pods-Credera-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Credera-iOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Credera-iOSUITests/Pods-Credera-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -344,6 +366,7 @@
 		598E173B219CDA81002AC3EC /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				F46160102267C54B006A3B72 /* CommitController */,
 				F4616002226528C7006A3B72 /* RepoController */,
 				598E173F219CDB04002AC3EC /* LaunchScreen */,
 				5910781421DD1F990017CA21 /* MainSinglePageApp */,
@@ -415,6 +438,8 @@
 				AFB6947F223AAA3A009473AE /* Models */,
 				AFB6947B223AA9ED009473AE /* UserService.swift */,
 				AFB6947D223AAA0C009473AE /* UserServiceImpl.swift */,
+				F46160182267CE41006A3B72 /* GitHubService.swift */,
+				F46160242268F63F006A3B72 /* GitHubGiphyIntegrationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -454,6 +479,7 @@
 				AFB694742239F7AE009473AE /* Models */,
 				AFB69477223A912F009473AE /* ApiProviderConfig.swift */,
 				F41B0CA02264E4DA006EFB8E /* GitHubProviderConfig.swift */,
+				F46160202267DDAF006A3B72 /* GiphyProviderConfig.swift */,
 			);
 			path = JSONPlaceholder;
 			sourceTree = "<group>";
@@ -467,6 +493,9 @@
 				591823AC223B05110062ED0C /* GeoApiModel.swift */,
 				AFBD0D1F2242E55900123314 /* PhotoApiModel.swift */,
 				F41B0C9E22613C23006EFB8E /* GitHubResponse.swift */,
+				F461600C2267A349006A3B72 /* GitHubCommitMessage.swift */,
+				F461600E2267A3BD006A3B72 /* GitHubRepoReponse.swift */,
+				F461601C2267DCD1006A3B72 /* GiphyResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -474,6 +503,7 @@
 		AFB6947F223AAA3A009473AE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F46160162267CBD1006A3B72 /* GitHubData.swift */,
 				AFB69489223AD56E009473AE /* User.swift */,
 			);
 			path = Models;
@@ -487,6 +517,7 @@
 				AFBD0D1C2242E4AA00123314 /* PhotosApi.swift */,
 				AFBD0D222242EB1F00123314 /* PhotosApiImpl.swift */,
 				F41B0C9C22613BC4006EFB8E /* GitHubApi.swift */,
+				F461601E2267DD6D006A3B72 /* GiphyApi.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -579,6 +610,24 @@
 			isa = PBXGroup;
 			children = (
 				F461600622652902006A3B72 /* RepoController.swift */,
+				F461600A226690FD006A3B72 /* RepoCellController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F46160102267C54B006A3B72 /* CommitController */ = {
+			isa = PBXGroup;
+			children = (
+				F46160112267C58F006A3B72 /* Controller */,
+				F46160142267C5CD006A3B72 /* CommitCollectionView.storyboard */,
+			);
+			path = CommitController;
+			sourceTree = "<group>";
+		};
+		F46160112267C58F006A3B72 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F46160122267C5A7006A3B72 /* CommitController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -696,6 +745,7 @@
 				AFD1E22A223A84C300131E4A /* NavigationIntermediate.storyboard in Resources */,
 				5910782721DD263C0017CA21 /* First.storyboard in Resources */,
 				5910781621DD1FC60017CA21 /* MainSinglePageApp.storyboard in Resources */,
+				F46160152267C5CD006A3B72 /* CommitCollectionView.storyboard in Resources */,
 				AFD1E234223AA50A00131E4A /* NavigationFinal.storyboard in Resources */,
 				5910782C21DD28AF0017CA21 /* AppHeaderView.xib in Resources */,
 				F4616004226528EE006A3B72 /* Repo.storyboard in Resources */,
@@ -852,27 +902,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFB6946C22393EB0009473AE /* HttpResponse.swift in Sources */,
+				F46160212267DDB0006A3B72 /* GiphyProviderConfig.swift in Sources */,
 				AFBD0D1D2242E4AA00123314 /* PhotosApi.swift in Sources */,
 				AFBD0D152241BC1900123314 /* NetworkError.swift in Sources */,
+				F461600D2267A349006A3B72 /* GitHubCommitMessage.swift in Sources */,
+				F46160192267CE41006A3B72 /* GitHubService.swift in Sources */,
 				5910783521DD2AC40017CA21 /* FirstViewController.swift in Sources */,
 				AFD1E22E223A870700131E4A /* NavigationHelper.swift in Sources */,
 				AFBD0D262242F4F300123314 /* UsersApiRequest.swift in Sources */,
 				5910782A21DD28A40017CA21 /* AppHeaderView.swift in Sources */,
 				F41B0C9D22613BC4006EFB8E /* GitHubApi.swift in Sources */,
 				5910781E21DD22770017CA21 /* MainSinglePageAppViewController.swift in Sources */,
+				F461600B226690FD006A3B72 /* RepoCellController.swift in Sources */,
 				AFD1E236223AA53D00131E4A /* NavigationFinalViewController.swift in Sources */,
 				591823AD223B05110062ED0C /* GeoApiModel.swift in Sources */,
 				AFD1E22C223A84DF00131E4A /* NavigationIntermediateViewController.swift in Sources */,
 				5910782321DD252A0017CA21 /* MainTabBarAppViewController.swift in Sources */,
+				F461600F2267A3BD006A3B72 /* GitHubRepoReponse.swift in Sources */,
+				F46160252268F63F006A3B72 /* GitHubGiphyIntegrationService.swift in Sources */,
 				F41B0CA12264E4DA006EFB8E /* GitHubProviderConfig.swift in Sources */,
 				5910781B21DD21900017CA21 /* NavigationController+Transitions.swift in Sources */,
+				F46160132267C5A7006A3B72 /* CommitController.swift in Sources */,
 				5910783021DD299F0017CA21 /* Constants.swift in Sources */,
 				AFB69478223A912F009473AE /* ApiProviderConfig.swift in Sources */,
 				AFB694712239F19A009473AE /* UserApiImpl.swift in Sources */,
 				AFB6947E223AAA0C009473AE /* UserServiceImpl.swift in Sources */,
+				F461601F2267DD6D006A3B72 /* GiphyApi.swift in Sources */,
 				AFB69485223AB4A6009473AE /* UserApiModel.swift in Sources */,
+				F46160172267CBD1006A3B72 /* GitHubData.swift in Sources */,
 				AFBD0D202242E55900123314 /* PhotoApiModel.swift in Sources */,
 				AFB6946022389FB2009473AE /* RequestCaller.swift in Sources */,
+				F461601D2267DCD1006A3B72 /* GiphyResponse.swift in Sources */,
 				F41B0C9F22613C23006EFB8E /* GitHubResponse.swift in Sources */,
 				AFBD0D232242EB1F00123314 /* PhotosApiImpl.swift in Sources */,
 				F461600722652902006A3B72 /* RepoController.swift in Sources */,

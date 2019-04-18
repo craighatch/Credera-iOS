@@ -43,15 +43,54 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var gitHubUsername: UITextField!
     
     @IBAction func getRepos(_ sender: UIButton) {
-                let gitHubApi: GitHubApi = GitHubApi(caller: RequestCaller())
-                gitHubApi.getPublicRepos(forUsername: gitHubUsername.text).then { values in
-                    print(values.map {$0.name})
-                    let repoScreen = RepoController.getInstance(passedInformation: values.map {$0.name})
-                    self.navigationController?.pushViewController(repoScreen, animated: true)
-                    }.catch {error in
-                        print(error)
+        let userName: String = "craighatch"
+        let gitHubService: GitHubService = GitHubService()
+        let giphyService: GiphyService = GiphyService()
+        
+        
+      gitHubService.getRepos(forUsername: userName , numberOfRepos: 5)
+        .then { repos in
+            gitHubService.populateCommonCommitWords(limitedTo: 5, withRepos: repos)
+                .then{
+                reposAndCommits in
+                    print(repo)
         }
     }
+    
+    
+//    func getCommitsAndGiphyDetails(repoName: String, userName: String) -> [GiphyDetails] {
+//        let gitHubtservice: GitHubService = GitHubService()
+//        let giphyService: GiphyService = GiphyService()
+//        return gitHubtservice.getPopularCommitWords(limitedTo: 5, withUsername: userName, withRepoName: repoName).then{
+//            (commits) -> [GiphyDetails] in
+//            return commits.map{ giphyService.getGiphyImage(word: $0).then{
+//                (details) in
+//                return details
+//
+//                }
+//
+//            }
+//        }
+//    }
+//
+//
+//
+//    let gitHubApi: GitHubApi = GitHubApi(caller: RequestCaller())
+//    gitHubApi.getPublicRepos(forUsername: gitHubUsername.text!).then { values in
+//    print(values.map {$0.name})
+//    let repoScreen = RepoController.getInstance(passedInformation: values.map {$0.name})
+//    self.navigationController?.pushViewController(repoScreen, animated: true)
+//    }.catch {error in
+//    print(error)
+//    }
+}
+
+
+
+
+
+
+
 }
 
 extension FirstViewController: NavigationCompletedProtocol {

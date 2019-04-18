@@ -25,6 +25,11 @@ class GitHubApi {
         return response
     }
     
-    
+    func getCommits(witUserName userName: String, withRepoName repo: String) -> Promise<[GitHubRepoResponse]> {
+        let request = HttpRequest(httpMethod: HttpMethod.get, path: "repos/"+userName+"/"+repo+"/commits", requestDefaults: requestDefaults)
+        let response: Promise<[GitHubRepoResponse]> = caller.call(request)
+        
+        return response
+    }
     
 }
