@@ -19,6 +19,7 @@ class GiphyApi {
     }
     
     func getImage(withSearchTerm searchTerm: String) -> Promise<GihpyResponse> {
+        
         let request = HttpRequest(
             httpMethod: HttpMethod.get,
             path: "v1/gifs/search",
@@ -35,6 +36,16 @@ class GiphyApi {
         
         let response: Promise<GihpyResponse> = caller.call(request)
         
+        return response
+    }
+    
+    func getUIImage(fromFullUrl link: String) -> Promise<Data> {
+        let url: URL = URL(string: link)!
+        let baseUrl = "https://" + url.host!
+        var path = url.path
+        path.remove(at: path.startIndex)
+        let imageRequest: ImageDownLoadRequest = ImageDownLoadRequest(httpMethod: HttpMethod.get, baseUrl: baseUrl, path: path)
+         let response = self.caller.downloadImage(imageRequest)
         return response
     }
 }

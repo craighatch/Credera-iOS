@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import UIKit
 struct GitHubData {
     var userName: String
-    var repoName:String
+    var repoName: String
     var commits: [String]
     
     init(withUserName userName:String, withRepoName repoName:String, withCommits commits: [String]) {
@@ -25,7 +26,7 @@ struct GitHubAndGiphyData {
     var repoName: String
     var commmitGiphyDetails: [CommitGiphyDetails]
     
-    init(withUserName userName:String, withRepoName repoName:String, withCommmitGiphyDetails commmitGiphyDetails: [CommitGiphyDetails]) {
+    init(withUserName userName: String, withRepoName repoName: String, withCommmitGiphyDetails commmitGiphyDetails: [CommitGiphyDetails]) {
         self.userName = userName
         self.repoName = repoName
         self.commmitGiphyDetails = commmitGiphyDetails
@@ -34,10 +35,10 @@ struct GitHubAndGiphyData {
 
 struct CommitGiphyDetails {
     var commit: String
-    var imageLink: String
+    var image: UIImage
     
-    init(commit: String, imageLink: String) {
+    init(commit: String, image: UIImage) {
         self.commit = commit
-        self.imageLink = imageLink
+        self.image = image
     }
 }

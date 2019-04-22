@@ -8,6 +8,5 @@
 
 import Foundation
 struct GitHubProviderConfig {
-    // TODO: Inject baseUrl string from some scheme related config?
     static let baseUrl: String = "https://api.github.com"
 }

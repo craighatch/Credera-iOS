@@ -49,14 +49,14 @@ class FirstViewController: UIViewController {
         
         gitHubService.getRepos(forUsername: userName, numberOfRepos: 1)
             .then { repos in
-                gitHubService.populateCommonCommitWords(limitedTo: 1, withRepos: repos)
+                gitHubService.populateCommonCommitWords(limitedTo: 2, withRepos: repos)
                     .then { reposAndCommits in
                         giphyService.getImagesForAllReposAndCommits(withGitHubData: reposAndCommits)
                             .then { gitHubAndGiphyData in
                                 self.goToCommitPage(gitHubAndGiphyData: gitHubAndGiphyData)
                             }.catch { error in
-                                let gitGphyData =  reposAndCommits.map { GitHubAndGiphyData(withUserName: $0.userName, withRepoName: $0.repoName, withCommmitGiphyDetails: $0.commits.map { CommitGiphyDetails(commit: $0, imageLink: "https://www.keycdn.com/img/support/429-too-many-requests-lg@2x.webp") }) }
-                                self.goToCommitPage(gitHubAndGiphyData: gitGphyData)
+//                                let gitGphyData =  reposAndCommits.map { GitHubAndGiphyData(withUserName: $0.userName, withRepoName: $0.repoName, withCommmitGiphyDetails: $0.commits.map { CommitGiphyDetails(commit: $0, imageLink: "https://www.keycdn.com/img/support/429-too-many-requests-lg@2x.webp") }) }
+//                                self.goToCommitPage(gitHubAndGiphyData: gitGphyData)
                         }
                     }.catch { error in
                         print(error)
@@ -70,7 +70,6 @@ class FirstViewController: UIViewController {
         let commitControllerScreen = CommitController.getInstance(gitHubGiphyDetails: gitHubAndGiphyData)
         self.navigationController?.pushViewController(commitControllerScreen, animated: true)
     }
-    
     
 }
 

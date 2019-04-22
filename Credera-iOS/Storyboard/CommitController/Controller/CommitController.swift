@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-
 class CommitController: UICollectionViewController, NavigationHelper {
     
     public class var storyboardName: String { return "CommitCollectionView" }
@@ -17,7 +16,6 @@ class CommitController: UICollectionViewController, NavigationHelper {
     private let reuseIdentifier = "commitCell"
     var gitHubGiphyDetails: [GitHubAndGiphyData]!
     private let itemsPerRow: CGFloat = 2
-    
     
     private let sectionInsets = UIEdgeInsets(top: 50.0,
                                              left: 20.0,
@@ -39,9 +37,14 @@ class CommitController: UICollectionViewController, NavigationHelper {
         ) -> UICollectionViewCell {
         let cell = collectionView
             .dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        cell.backgroundColor = .black
-        // Configure the cell
-        return cell
+        
+        if let repoCell = cell as? GiphyImage {
+            
+            repoCell.imageView.image = gitHubGiphyDetails[indexPath.section].commmitGiphyDetails[indexPath.row].image
+            return repoCell
+        } else {
+            return UICollectionViewCell()
+        }
     }
     
     public static func getInstance(gitHubGiphyDetails: [GitHubAndGiphyData]) -> UIViewController {
@@ -53,11 +56,9 @@ class CommitController: UICollectionViewController, NavigationHelper {
         
         return commitController
     }
-    
 }
 
-extension CommitController : UICollectionViewDelegateFlowLayout {
-    
+extension CommitController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
