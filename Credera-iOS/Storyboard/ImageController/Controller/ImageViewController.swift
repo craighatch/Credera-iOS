@@ -26,7 +26,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate, NavigationHel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView = UIImageView(image: commitGiphyDetails.image)
+        imageView = UIImageView(image: UIImage(data: commitGiphyDetails!.imageData))
         scrollView = UIScrollView(frame: view.bounds)
         scrollView.backgroundColor = UIColor.black
         scrollView.contentSize = imageView.bounds.size
@@ -42,5 +42,4 @@ class ImageViewController: UIViewController, UIScrollViewDelegate, NavigationHel
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
     }
-    
 }

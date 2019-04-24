@@ -55,8 +55,7 @@ class GitHubGiphyIntegrationService {
     func getUIImageFromCommitAndLink(forCommit commit: Commit, fromLink link: String) -> Promise<CommitGiphyDetails> {
         return self.giphyApi.getUIImage(fromFullUrl: link)
             .then { imageResponse -> CommitGiphyDetails in
-                let image = UIImage(data: imageResponse)
-                return CommitGiphyDetails(commit: commit, image: image!)
+                return CommitGiphyDetails(commit: commit, imageData: imageResponse)
         }
     }
 }

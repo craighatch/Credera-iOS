@@ -43,7 +43,7 @@ class GiphyApi {
         let url: URL = URL(string: link)!
         let baseUrl = "https://" + url.host!
         var path = url.path
-        path.remove(at: path.startIndex)
+        path.remove(at: path.startIndex) // remove the initial '/' from the path
         let imageRequest: ImageDownLoadRequest = ImageDownLoadRequest(httpMethod: HttpMethod.get, baseUrl: baseUrl, path: path)
          let response = self.caller.downloadImage(imageRequest)
         return response

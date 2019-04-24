@@ -43,7 +43,7 @@ class CommitController: UICollectionViewController, NavigationHelper {
             let commitOccurrnaces = gitHubGiphyDetails[indexPath.section].commmitGiphyDetails[indexPath.row].commit.occurrances
             
             repoCell.caption.text = "\(commitWord): \(commitOccurrnaces)"
-            repoCell.imageView.image = gitHubGiphyDetails[indexPath.section].commmitGiphyDetails[indexPath.row].image
+            repoCell.imageView.image = UIImage(data: gitHubGiphyDetails[indexPath.section].commmitGiphyDetails[indexPath.row].imageData)
             return repoCell
         } else {
             return UICollectionViewCell()
@@ -69,6 +69,7 @@ class CommitController: UICollectionViewController, NavigationHelper {
         }
         return UICollectionReusableView()
     }
+    
 }
 
 extension CommitController: UICollectionViewDelegateFlowLayout {
