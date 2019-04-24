@@ -39,7 +39,10 @@ class CommitController: UICollectionViewController, NavigationHelper {
             .dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         
         if let repoCell = cell as? GiphyImage {
-            repoCell.caption.text = gitHubGiphyDetails[indexPath.section].commmitGiphyDetails[indexPath.row].commit
+            let commitWord = gitHubGiphyDetails[indexPath.section].commmitGiphyDetails[indexPath.row].commit.word
+            let commitOccurrnaces = gitHubGiphyDetails[indexPath.section].commmitGiphyDetails[indexPath.row].commit.occurrances
+            
+            repoCell.caption.text = "\(commitWord): \(commitOccurrnaces)"
             repoCell.imageView.image = gitHubGiphyDetails[indexPath.section].commmitGiphyDetails[indexPath.row].image
             return repoCell
         } else {

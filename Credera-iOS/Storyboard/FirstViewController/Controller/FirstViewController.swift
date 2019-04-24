@@ -47,9 +47,9 @@ class FirstViewController: UIViewController {
         let gitHubService: GitHubService = GitHubService()
         let giphyService: GitHubGiphyIntegrationService = GitHubGiphyIntegrationService()
         
-        gitHubService.getRepos(forUsername: userName, numberOfRepos: 1)
+        gitHubService.getRepos(forUsername: userName, numberOfRepos: 2)
             .then { repos in
-                gitHubService.populateCommonCommitWords(limitedTo: 2, withRepos: repos)
+                gitHubService.populateCommonCommitWords(limitedTo: 4, withRepos: repos)
                     .then { reposAndCommits in
                         giphyService.getImagesForAllReposAndCommits(withGitHubData: reposAndCommits)
                             .then { gitHubAndGiphyData in

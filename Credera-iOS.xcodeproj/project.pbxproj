@@ -72,6 +72,7 @@
 		F44A6102226F6ADD00CBFC75 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44A6101226F6ADD00CBFC75 /* ImageViewController.swift */; };
 		F44A6105226F6C1600CBFC75 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44A6104226F6C1600CBFC75 /* ImageView.swift */; };
 		F44A6109226F740700CBFC75 /* GiphyScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44A6108226F740700CBFC75 /* GiphyScrollView.swift */; };
+		F44A610B2270CD3900CBFC75 /* BoringWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44A610A2270CD3900CBFC75 /* BoringWords.swift */; };
 		F4616004226528EE006A3B72 /* Repo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4616003226528EE006A3B72 /* Repo.storyboard */; };
 		F461600722652902006A3B72 /* RepoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461600622652902006A3B72 /* RepoController.swift */; };
 		F461600B226690FD006A3B72 /* RepoCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461600A226690FD006A3B72 /* RepoCellController.swift */; };
@@ -182,6 +183,7 @@
 		F44A6101226F6ADD00CBFC75 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		F44A6104226F6C1600CBFC75 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		F44A6108226F740700CBFC75 /* GiphyScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyScrollView.swift; sourceTree = "<group>"; };
+		F44A610A2270CD3900CBFC75 /* BoringWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoringWords.swift; sourceTree = "<group>"; };
 		F4616003226528EE006A3B72 /* Repo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Repo.storyboard; sourceTree = "<group>"; };
 		F461600622652902006A3B72 /* RepoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoController.swift; sourceTree = "<group>"; };
 		F461600A226690FD006A3B72 /* RepoCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCellController.swift; sourceTree = "<group>"; };
@@ -519,6 +521,7 @@
 		AFB6947F223AAA3A009473AE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F44A610A2270CD3900CBFC75 /* BoringWords.swift */,
 				F46160162267CBD1006A3B72 /* GitHubData.swift */,
 				AFB69489223AD56E009473AE /* User.swift */,
 			);
@@ -959,6 +962,7 @@
 				AFD1E22C223A84DF00131E4A /* NavigationIntermediateViewController.swift in Sources */,
 				5910782321DD252A0017CA21 /* MainTabBarAppViewController.swift in Sources */,
 				F461600F2267A3BD006A3B72 /* GitHubRepoReponse.swift in Sources */,
+				F44A610B2270CD3900CBFC75 /* BoringWords.swift in Sources */,
 				F46160252268F63F006A3B72 /* GitHubGiphyIntegrationService.swift in Sources */,
 				F461602922692873006A3B72 /* GiphyImage.swift in Sources */,
 				F41B0CA12264E4DA006EFB8E /* GitHubProviderConfig.swift in Sources */,

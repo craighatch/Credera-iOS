@@ -35,41 +35,28 @@ class GitHubGiphyIntegrationService {
     
     func getImagesForEachCommit(withGitHubData gitHubData: GitHubData) -> Promise<GitHubAndGiphyData> {
         
-        let promises = gitHubData.commits.map { getImageForWord(withSearchWord: $0) }
+        let promises = gitHubData.commits.map { getImageForCommit(forCommit: $0) }
         return Promises.all(promises)
             .then { gitAndGiphyData in
                 return GitHubAndGiphyData(withUserName: gitHubData.userName, withRepoName: gitHubData.repoName, withCommmitGiphyDetails: gitAndGiphyData)
         }
     }
     
-    func getImageForWord(withSearchWord word: String) -> Promise<CommitGiphyDetails> {
-        return giphyApi.getImage(withSearchTerm: word)
+    func getImageForCommit(forCommit commit: Commit) -> Promise<CommitGiphyDetails> {
+        return giphyApi.getImage(withSearchTerm: commit.word)
             .then { response in
-                return self.getUIImageFromCommitAndLink(forWord: word, fromLink: response.imageLink[0])
+                return self.getUIImageFromCommitAndLink(forCommit: commit, fromLink: response.imageLink[0])
                     .then { details in
                         return details
                 }
         }
     }
     
-    func getUIImageFromCommitAndLink(forWord word: String, fromLink link: String) -> Promise<CommitGiphyDetails> {
+    func getUIImageFromCommitAndLink(forCommit commit: Commit, fromLink link: String) -> Promise<CommitGiphyDetails> {
         return self.giphyApi.getUIImage(fromFullUrl: link)
             .then { imageResponse -> CommitGiphyDetails in
                 let image = UIImage(data: imageResponse)
-                return CommitGiphyDetails(commit: word, image: image!)
-        }
-    }
-    
-    func asdf(forWord word: String, fromLink link: String) -> Promise<CommitGiphyDetails> {
-        let url: URL = URL(string: link)!
-        let baseUrl = "https://" + url.host!
-        var path = url.path
-        path.remove(at: path.startIndex)
-        let imageRequest: ImageDownLoadRequest = ImageDownLoadRequest(httpMethod: HttpMethod.get, baseUrl: baseUrl, path: path)
-        return self.requestCaller.downloadImage(imageRequest)
-            .then { imageResponse -> CommitGiphyDetails in
-                let image = UIImage(data: imageResponse)
-                return CommitGiphyDetails(commit: word, image: image!)
+                return CommitGiphyDetails(commit: commit, image: image!)
         }
     }
 }

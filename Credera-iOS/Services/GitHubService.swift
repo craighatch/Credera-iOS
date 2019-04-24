@@ -14,7 +14,6 @@ class GitHubService {
     let caller: RequestCaller
     let gitHubApi: GitHubApi
     let giphyService: GitHubGiphyIntegrationService
-    
     init() {
         self.caller = RequestCaller()
         self.gitHubApi = GitHubApi(caller: self.caller)
@@ -44,12 +43,10 @@ class GitHubService {
                 withRepoName: gitHubData.repoName,
                 withCommits: Array(self.createWordCountMap(gitHubRepoResponses: values).prefix(limit))
             )
-            
         }
-        
     }
     
-    func createWordCountMap(gitHubRepoResponses: [GitHubRepoResponse]) -> [String] {
+    func createWordCountMap(gitHubRepoResponses: [GitHubRepoResponse]) -> [Commit] {
         let words = gitHubRepoResponses.flatMap {$0.commit.message.split(separator: " ")}.map {String($0)}
         
         var wordCount: [String: Int] = [:]
@@ -60,6 +57,9 @@ class GitHubService {
                 wordCount[word] = 1
             }
         }
-        return wordCount.sorted {$0.value > $1.value}.map { $0.key }
+        let popularCommits = wordCount.sorted {$0.value > $1.value}
+            .map { Commit(word: $0.key.lowercased() , occurrances: $0.value) }
+            .filter { !BoringWords.words.contains($0.word)}
+        return popularCommits
     }
 }

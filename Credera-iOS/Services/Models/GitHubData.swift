@@ -11,9 +11,9 @@ import UIKit
 struct GitHubData {
     var userName: String
     var repoName: String
-    var commits: [String]
+    var commits: [Commit]
     
-    init(withUserName userName:String, withRepoName repoName:String, withCommits commits: [String]) {
+    init(withUserName userName:String, withRepoName repoName:String, withCommits commits: [Commit]) {
         self.userName = userName
         self.repoName = repoName
         self.commits = commits
@@ -34,11 +34,20 @@ struct GitHubAndGiphyData {
 }
 
 struct CommitGiphyDetails {
-    var commit: String
+    var commit: Commit
     var image: UIImage
-    
-    init(commit: String, image: UIImage) {
+    init(commit: Commit, image: UIImage) {
         self.commit = commit
         self.image = image
+    }
+}
+
+struct Commit {
+    var word: String
+    var occurrances: Int
+    
+    init( word: String, occurrances: Int) {
+        self.word = word
+        self.occurrances = occurrances
     }
 }
