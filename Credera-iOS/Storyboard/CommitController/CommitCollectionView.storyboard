@@ -19,34 +19,67 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tsM-Vy-Pzg">
                             <size key="itemSize" width="200" height="200"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="commitCell" id="YbJ-fc-m3d" customClass="GiphyImage" customModule="Credera_iOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                <rect key="frame" x="0.0" y="50" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BTs-O7-RNb">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="160"/>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKd-eQ-kZu">
+                                            <rect key="frame" x="8" y="160" width="184" height="32"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </view>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="BTs-O7-RNb" secondAttribute="bottom" constant="40" id="9yS-xk-2kd"/>
                                     <constraint firstAttribute="trailing" secondItem="BTs-O7-RNb" secondAttribute="trailing" id="Ctr-sX-D3d"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="DKd-eQ-kZu" secondAttribute="bottom" id="Hwe-12-sLL"/>
+                                    <constraint firstItem="DKd-eQ-kZu" firstAttribute="leading" secondItem="YbJ-fc-m3d" secondAttribute="leadingMargin" id="NW0-Fg-K6x"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="DKd-eQ-kZu" secondAttribute="trailing" id="TdS-fc-HDU"/>
                                     <constraint firstItem="BTs-O7-RNb" firstAttribute="top" secondItem="YbJ-fc-m3d" secondAttribute="top" id="Z0u-WY-bWE"/>
                                     <constraint firstItem="BTs-O7-RNb" firstAttribute="leading" secondItem="YbJ-fc-m3d" secondAttribute="leading" id="gPr-gg-frp"/>
-                                    <constraint firstAttribute="bottom" secondItem="BTs-O7-RNb" secondAttribute="bottom" id="v0v-gK-4Ki"/>
+                                    <constraint firstItem="DKd-eQ-kZu" firstAttribute="top" secondItem="BTs-O7-RNb" secondAttribute="bottom" id="vun-Qj-FxC"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="caption" destination="DKd-eQ-kZu" id="XsU-6a-ywN"/>
                                     <outlet property="imageView" destination="BTs-O7-RNb" id="Brj-ID-pRs"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionHeader" id="Iiq-zA-iZt" customClass="SectionHeader" customModule="Credera_iOS" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijo-bx-nTX">
+                                    <rect key="frame" x="8" y="8" width="398" height="34"/>
+                                    <color key="backgroundColor" red="0.61266647452578682" green="0.27388260505155626" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottomMargin" secondItem="ijo-bx-nTX" secondAttribute="bottom" id="Kag-lW-s0J"/>
+                                <constraint firstItem="ijo-bx-nTX" firstAttribute="leading" secondItem="Iiq-zA-iZt" secondAttribute="leadingMargin" id="VCJ-ey-n2v"/>
+                                <constraint firstAttribute="trailingMargin" secondItem="ijo-bx-nTX" secondAttribute="trailing" id="VpZ-SN-XBJ"/>
+                                <constraint firstItem="ijo-bx-nTX" firstAttribute="top" secondItem="Iiq-zA-iZt" secondAttribute="topMargin" id="nOm-jM-0a4"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="sectionHeaderLabel" destination="ijo-bx-nTX" id="WnU-tT-Dnf"/>
+                            </connections>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="5NC-jn-6yc" id="yOC-zU-baP"/>
                             <outlet property="delegate" destination="5NC-jn-6yc" id="Fe0-87-ZxN"/>
@@ -55,7 +88,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XbX-i2-xjl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-71" y="108"/>
+            <point key="canvasLocation" x="-71.014492753623188" y="107.8125"/>
         </scene>
     </scenes>
 </document>

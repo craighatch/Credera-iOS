@@ -63,8 +63,8 @@ class RepoController: UIViewController, NavigationHelper, UITableViewDelegate, U
         return repoController
     }
     
-    func createWordCountMap(gitHubRepoResponses: [GitHubRepoResponse]) -> [String: Int]{
-        let words = gitHubRepoResponses.flatMap{$0.commit.message.split(separator: " ")}.map {String($0)}
+    func createWordCountMap(gitHubRepoResponses: [GitHubRepoResponse]) -> [String: Int] {
+        let words = gitHubRepoResponses.flatMap {$0.commit.message.split(separator: " ")}.map { String($0)}
         
         var wordCount: [String: Int] = [:]
         words.forEach { word in

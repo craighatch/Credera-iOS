@@ -39,7 +39,7 @@ class CommitController: UICollectionViewController, NavigationHelper {
             .dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         
         if let repoCell = cell as? GiphyImage {
-            
+            repoCell.caption.text = gitHubGiphyDetails[indexPath.section].commmitGiphyDetails[indexPath.row].commit
             repoCell.imageView.image = gitHubGiphyDetails[indexPath.section].commmitGiphyDetails[indexPath.row].image
             return repoCell
         } else {
@@ -55,6 +55,16 @@ class CommitController: UICollectionViewController, NavigationHelper {
         commitController.gitHubGiphyDetails = gitHubGiphyDetails
         
         return commitController
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as? SectionHeader {
+            sectionHeader.sectionHeaderLabel.text = "Repo:  \(gitHubGiphyDetails[indexPath.section].repoName)"
+            sectionHeader.sectionHeaderLabel.textColor = .white
+            return sectionHeader
+        }
+        return UICollectionReusableView()
     }
 }
 
@@ -84,4 +94,14 @@ extension CommitController: UICollectionViewDelegateFlowLayout {
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Selected image with commit: \(gitHubGiphyDetails[indexPath.section].commmitGiphyDetails[indexPath.row].commit)")
+        
+        let imageController = ImageViewController.getInstance(commitGiphyDetails: gitHubGiphyDetails[indexPath.section].commmitGiphyDetails[indexPath.row])
+        
+        navigationController?.pushViewController(imageController, animated: true)
+        
+    }
+    
 }
