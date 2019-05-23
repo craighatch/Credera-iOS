@@ -21,34 +21,41 @@ class GitHubGiphyIntegrationService {
         self.requestCaller = RequestCaller()
     }
     
-    func getImagesForAllReposAndCommits(withGitHubData gitHubData: [GitHubData]) -> Promise<[GitHubAndGiphyData]> {
-        let promises = gitHubData.map { getImagesForEachCommit(withGitHubData: $0) }
-        return Promises.all(promises)
-            .then { gitAndGiphyData in
-                return gitAndGiphyData
+    func getImagesForAllReposAndCommits(withGitHubData gitHubData: [GitHubData]) throws -> Promise<[GitHubAndGiphyData]> {
+        do {
+            let promises = try gitHubData.map { try getImagesForEachCommit(withGitHubData: $0) }
+            return Promises.all(promises)
+                .then { gitAndGiphyData in
+                    return gitAndGiphyData
             }
-//            .catch { error in
-//                return gitHubData.map { GitHubAndGiphyData(withUserName: $0.userName, withRepoName: $0.repoName, withCommmitGiphyDetails: $0.commits.map { getUIImageFromCommitAndLink(forWord: $0, fromLink: "https://www.keycdn.com/img/support/429-too-many-requests-lg@2x.webp") })
-//                }
-//        }
+        } catch HttpError.NotFound {
+            throw GiphyError(kind: GiphyError.ErrorKind.notFound)
+        }
+        
     }
     
-    func getImagesForEachCommit(withGitHubData gitHubData: GitHubData) -> Promise<GitHubAndGiphyData> {
-        
-        let promises = gitHubData.commits.map { getImageForCommit(forCommit: $0) }
-        return Promises.all(promises)
-            .then { gitAndGiphyData in
-                return GitHubAndGiphyData(withUserName: gitHubData.userName, withRepoName: gitHubData.repoName, withCommmitGiphyDetails: gitAndGiphyData)
+    func getImagesForEachCommit(withGitHubData gitHubData: GitHubData) throws -> Promise<GitHubAndGiphyData> {
+        do {
+            let promises = try gitHubData.commits.map { try getImageForCommit(forCommit: $0) }
+            return Promises.all(promises)
+                .then { gitAndGiphyData in
+                    return GitHubAndGiphyData(withUserName: gitHubData.userName, withRepoName: gitHubData.repoName, withCommmitGiphyDetails: gitAndGiphyData)
+                }
+        } catch HttpError.NotFound {
+            throw GiphyError(kind: GiphyError.ErrorKind.notFound)
         }
     }
     
-    func getImageForCommit(forCommit commit: Commit) -> Promise<CommitGiphyDetails> {
-        return giphyApi.getImage(withSearchTerm: commit.word)
+    func getImageForCommit(forCommit commit: Commit) throws -> Promise<CommitGiphyDetails> {
+        do { return try giphyApi.getImage(withSearchTerm: commit.word)
             .then { response in
                 return self.getUIImageFromCommitAndLink(forCommit: commit, fromLink: response.imageLink[0])
                     .then { details in
                         return details
                 }
+            }
+        } catch HttpError.NotFound {
+            throw GiphyError(kind: GiphyError.ErrorKind.notFound)
         }
     }
     

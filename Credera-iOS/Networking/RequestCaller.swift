@@ -67,11 +67,9 @@ public class RequestCaller {
         return HttpError(rawValue: statusCode) ?? nil
     }
     
-
     public func downloadImage(_ request: HttpRequest) -> Promise<Data> {
         return Promise<Data>(on: .global(qos: .background), { (fullfill, reject) in
             self.urlSession.dataTask(with: request.asURLRequest()) { (data, response, error) in
-                // TODO: When is this damn thing populated?!
                 if let error = error {
                     reject(error)
                     return

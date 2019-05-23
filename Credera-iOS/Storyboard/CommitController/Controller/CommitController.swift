@@ -14,13 +14,18 @@ class CommitController: UICollectionViewController, NavigationHelper {
     public class var viewControllerID: String { return "CommitController" }
     
     private let reuseIdentifier = "commitCell"
-    var gitHubGiphyDetails: [GitHubAndGiphyData]!
+    var gitHubGiphyDetails: [GitHubAndGiphyData] = []
     private let itemsPerRow: CGFloat = 2
     
     private let sectionInsets = UIEdgeInsets(top: 50.0,
                                              left: 20.0,
                                              bottom: 50.0,
                                              right: 20.0)
+    
+    override func viewDidLoad() {
+        
+
+    }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return gitHubGiphyDetails.count

@@ -20,15 +20,6 @@ class FileService {
     
     func saveToDevice(withData inputData: [GitHubAndGiphyData]) {
         let encoder = JSONEncoder()
-//        do {
-//            let data = try encoder.encode(inputData)
-//            if FileManager.default.fileExists(atPath: self.fileUrl.path) {
-//                try FileManager.default.removeItem(at: self.fileUrl)
-//            }
-//            FileManager.default.createFile(atPath: self.fileUrl.path, contents: data, attributes: nil)
-//        } catch {
-//            fatalError(error.localizedDescription)
-//        }
         do {
             let data = try encoder.encode(inputData)
             let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(data, toFile: fileUrl.path)
@@ -45,8 +36,6 @@ class FileService {
     func getData() -> [GitHubAndGiphyData]? {
         let decoder = JSONDecoder()
         let encoded = (NSKeyedUnarchiver.unarchiveObject(withFile: fileUrl.path) as? Data)!
-//        let encoded2 = (NSKeyedUnarchiver.unarchiveObject(withFile: fileUrl.path) as?[GitHubAndGiphyData])!
-
         return try? decoder.decode([GitHubAndGiphyData].self, from: encoded)
     }
     

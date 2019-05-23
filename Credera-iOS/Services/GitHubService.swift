@@ -58,8 +58,19 @@ class GitHubService {
             }
         }
         let popularCommits = wordCount.sorted {$0.value > $1.value}
-            .map { Commit(word: $0.key.lowercased() , occurrances: $0.value) }
-            .filter { !BoringWords.words.contains($0.word)}
+            .map { Commit(word: $0.key.lowercased(), occurrances: $0.value) }
+            .map { self.removePunctuation(commit: $0) }
+            .filter { !WordUtil.boringWords.contains($0.word)}
+        
         return popularCommits
     }
+    
+    func removePunctuation(commit: Commit) -> Commit {
+        var newWord = commit.word
+        WordUtil.punctuation.forEach({
+            newWord = newWord.replacingOccurrences(of: $0, with: "")
+        })
+        return Commit(word: newWord, occurrances: commit.occurrances)
+    }
+    
 }

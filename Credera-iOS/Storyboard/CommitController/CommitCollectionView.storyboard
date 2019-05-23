@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jJA-Sd-2YM">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,24 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Commit-->
+        <scene sceneID="koh-6W-znD">
+            <objects>
+                <navigationController id="jJA-Sd-2YM" userLabel="Commit" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Load" image="Commit" id="jCG-nf-m1Q"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yIw-yy-EeP">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5NC-jn-6yc" kind="relationship" relationship="rootViewController" id="l4C-CH-6da"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="elv-ZN-Mr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-930" y="108"/>
+        </scene>
         <!--Commit Controller-->
         <scene sceneID="ejr-cc-iGg">
             <objects>
@@ -85,10 +103,14 @@
                             <outlet property="delegate" destination="5NC-jn-6yc" id="Fe0-87-ZxN"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" id="W3U-Ie-f7L"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XbX-i2-xjl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-71.014492753623188" y="107.8125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Commit" width="30" height="30"/>
+    </resources>
 </document>

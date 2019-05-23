@@ -41,9 +41,7 @@ class RepoController: UIViewController, NavigationHelper, UITableViewDelegate, U
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped cell number \(indexPath.row).")
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
         let gitHubApi: GitHubApi = GitHubApi(caller: RequestCaller())
         gitHubApi.getCommits(witUserName: "craighatch", withRepoName: "funcation-programming-scala").then { values in
            

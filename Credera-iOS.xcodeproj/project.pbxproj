@@ -74,9 +74,6 @@
 		F44A6109226F740700CBFC75 /* GiphyScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44A6108226F740700CBFC75 /* GiphyScrollView.swift */; };
 		F44A610B2270CD3900CBFC75 /* BoringWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44A610A2270CD3900CBFC75 /* BoringWords.swift */; };
 		F44A610D2270D6BE00CBFC75 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44A610C2270D6BE00CBFC75 /* FileService.swift */; };
-		F4616004226528EE006A3B72 /* Repo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4616003226528EE006A3B72 /* Repo.storyboard */; };
-		F461600722652902006A3B72 /* RepoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461600622652902006A3B72 /* RepoController.swift */; };
-		F461600B226690FD006A3B72 /* RepoCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461600A226690FD006A3B72 /* RepoCellController.swift */; };
 		F461600D2267A349006A3B72 /* GitHubCommitMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461600C2267A349006A3B72 /* GitHubCommitMessage.swift */; };
 		F461600F2267A3BD006A3B72 /* GitHubRepoReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461600E2267A3BD006A3B72 /* GitHubRepoReponse.swift */; };
 		F46160132267C5A7006A3B72 /* CommitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46160122267C5A7006A3B72 /* CommitController.swift */; };
@@ -88,6 +85,9 @@
 		F46160212267DDB0006A3B72 /* GiphyProviderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46160202267DDAF006A3B72 /* GiphyProviderConfig.swift */; };
 		F46160252268F63F006A3B72 /* GitHubGiphyIntegrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46160242268F63F006A3B72 /* GitHubGiphyIntegrationService.swift */; };
 		F461602922692873006A3B72 /* GiphyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461602822692873006A3B72 /* GiphyImage.swift */; };
+		F4836B5B228A0CD700B81117 /* IntegerPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4836B5A228A0CD700B81117 /* IntegerPicker.swift */; };
+		F4A1482B2289DB4E00D3872A /* GiphyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A1482A2289DB4E00D3872A /* GiphyError.swift */; };
+		F4AB58FB228F010B007198FA /* CommitNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB58FA228F010B007198FA /* CommitNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,9 +186,6 @@
 		F44A6108226F740700CBFC75 /* GiphyScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyScrollView.swift; sourceTree = "<group>"; };
 		F44A610A2270CD3900CBFC75 /* BoringWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoringWords.swift; sourceTree = "<group>"; };
 		F44A610C2270D6BE00CBFC75 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
-		F4616003226528EE006A3B72 /* Repo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Repo.storyboard; sourceTree = "<group>"; };
-		F461600622652902006A3B72 /* RepoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoController.swift; sourceTree = "<group>"; };
-		F461600A226690FD006A3B72 /* RepoCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCellController.swift; sourceTree = "<group>"; };
 		F461600C2267A349006A3B72 /* GitHubCommitMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubCommitMessage.swift; sourceTree = "<group>"; };
 		F461600E2267A3BD006A3B72 /* GitHubRepoReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepoReponse.swift; sourceTree = "<group>"; };
 		F46160122267C5A7006A3B72 /* CommitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitController.swift; sourceTree = "<group>"; };
@@ -200,6 +197,9 @@
 		F46160202267DDAF006A3B72 /* GiphyProviderConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyProviderConfig.swift; sourceTree = "<group>"; };
 		F46160242268F63F006A3B72 /* GitHubGiphyIntegrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubGiphyIntegrationService.swift; sourceTree = "<group>"; };
 		F461602822692873006A3B72 /* GiphyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyImage.swift; sourceTree = "<group>"; };
+		F4836B5A228A0CD700B81117 /* IntegerPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerPicker.swift; sourceTree = "<group>"; };
+		F4A1482A2289DB4E00D3872A /* GiphyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyError.swift; sourceTree = "<group>"; };
+		F4AB58FA228F010B007198FA /* CommitNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitNavigationController.swift; sourceTree = "<group>"; };
 		FF250F3FCF3A682573AA52AA /* Pods-Credera-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Credera-iOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Credera-iOSUITests/Pods-Credera-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -304,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				5910783421DD2AC40017CA21 /* FirstViewController.swift */,
+				F4836B5A228A0CD700B81117 /* IntegerPicker.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -386,7 +387,6 @@
 			children = (
 				F44A60FE226F67C300CBFC75 /* ImageController */,
 				F46160102267C54B006A3B72 /* CommitController */,
-				F4616002226528C7006A3B72 /* RepoController */,
 				598E173F219CDB04002AC3EC /* LaunchScreen */,
 				5910781421DD1F990017CA21 /* MainSinglePageApp */,
 				5910781321DD1F7C0017CA21 /* MainTabBarApp */,
@@ -454,6 +454,7 @@
 		AF462207223752FC0053CB00 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F4A148292289DB3400D3872A /* Errors */,
 				AFB6947F223AAA3A009473AE /* Models */,
 				AFB6947B223AA9ED009473AE /* UserService.swift */,
 				AFB6947D223AAA0C009473AE /* UserServiceImpl.swift */,
@@ -638,24 +639,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		F4616002226528C7006A3B72 /* RepoController */ = {
-			isa = PBXGroup;
-			children = (
-				F4616005226528F4006A3B72 /* Controller */,
-				F4616003226528EE006A3B72 /* Repo.storyboard */,
-			);
-			path = RepoController;
-			sourceTree = "<group>";
-		};
-		F4616005226528F4006A3B72 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				F461600622652902006A3B72 /* RepoController.swift */,
-				F461600A226690FD006A3B72 /* RepoCellController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		F46160102267C54B006A3B72 /* CommitController */ = {
 			isa = PBXGroup;
 			children = (
@@ -671,8 +654,17 @@
 				F44A60FC226E6F3C00CBFC75 /* SectionHeader.swift */,
 				F46160122267C5A7006A3B72 /* CommitController.swift */,
 				F461602822692873006A3B72 /* GiphyImage.swift */,
+				F4AB58FA228F010B007198FA /* CommitNavigationController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		F4A148292289DB3400D3872A /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				F4A1482A2289DB4E00D3872A /* GiphyError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -792,7 +784,6 @@
 				F46160152267C5CD006A3B72 /* CommitCollectionView.storyboard in Resources */,
 				AFD1E234223AA50A00131E4A /* NavigationFinal.storyboard in Resources */,
 				5910782C21DD28AF0017CA21 /* AppHeaderView.xib in Resources */,
-				F4616004226528EE006A3B72 /* Repo.storyboard in Resources */,
 				5949D1BA219CBBAE006D2FF0 /* LaunchScreen.storyboard in Resources */,
 				5949D1B7219CBBAE006D2FF0 /* Assets.xcassets in Resources */,
 				5910783721DD2B170017CA21 /* Second.storyboard in Resources */,
@@ -955,11 +946,11 @@
 				5910783521DD2AC40017CA21 /* FirstViewController.swift in Sources */,
 				AFD1E22E223A870700131E4A /* NavigationHelper.swift in Sources */,
 				AFBD0D262242F4F300123314 /* UsersApiRequest.swift in Sources */,
+				F4AB58FB228F010B007198FA /* CommitNavigationController.swift in Sources */,
 				5910782A21DD28A40017CA21 /* AppHeaderView.swift in Sources */,
 				F41B0C9D22613BC4006EFB8E /* GitHubApi.swift in Sources */,
 				F44A60FB226E51F200CBFC75 /* ImageDownloadRequest.swift in Sources */,
 				5910781E21DD22770017CA21 /* MainSinglePageAppViewController.swift in Sources */,
-				F461600B226690FD006A3B72 /* RepoCellController.swift in Sources */,
 				AFD1E236223AA53D00131E4A /* NavigationFinalViewController.swift in Sources */,
 				591823AD223B05110062ED0C /* GeoApiModel.swift in Sources */,
 				AFD1E22C223A84DF00131E4A /* NavigationIntermediateViewController.swift in Sources */,
@@ -968,7 +959,9 @@
 				F44A610B2270CD3900CBFC75 /* BoringWords.swift in Sources */,
 				F46160252268F63F006A3B72 /* GitHubGiphyIntegrationService.swift in Sources */,
 				F461602922692873006A3B72 /* GiphyImage.swift in Sources */,
+				F4A1482B2289DB4E00D3872A /* GiphyError.swift in Sources */,
 				F41B0CA12264E4DA006EFB8E /* GitHubProviderConfig.swift in Sources */,
+				F4836B5B228A0CD700B81117 /* IntegerPicker.swift in Sources */,
 				F44A610D2270D6BE00CBFC75 /* FileService.swift in Sources */,
 				5910781B21DD21900017CA21 /* NavigationController+Transitions.swift in Sources */,
 				F46160132267C5A7006A3B72 /* CommitController.swift in Sources */,
@@ -985,7 +978,6 @@
 				F461601D2267DCD1006A3B72 /* GiphyResponse.swift in Sources */,
 				F41B0C9F22613C23006EFB8E /* GitHubResponse.swift in Sources */,
 				AFBD0D232242EB1F00123314 /* PhotosApiImpl.swift in Sources */,
-				F461600722652902006A3B72 /* RepoController.swift in Sources */,
 				5910782E21DD29410017CA21 /* XibView.swift in Sources */,
 				AFB6947C223AA9ED009473AE /* UserService.swift in Sources */,
 				AFBD0D122241B03400123314 /* HttpError.swift in Sources */,

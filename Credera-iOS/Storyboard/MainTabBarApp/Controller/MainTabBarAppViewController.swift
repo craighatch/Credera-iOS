@@ -22,9 +22,18 @@ class MainTabBarAppViewController: UITabBarController, UITabBarControllerDelegat
         if let firstVC: UIViewController = UIStoryboard(name: "First", bundle: Bundle.main).instantiateInitialViewController() {
             viewControllerArray.append(firstVC)
         }
+    
         
-        if let secondVC: UIViewController = UIStoryboard(name: "Second", bundle: Bundle.main).instantiateInitialViewController() {
-            viewControllerArray.append(secondVC)
+        if let commitVC: UIViewController = UIStoryboard(name: "CommitCollectionView", bundle: Bundle.main).instantiateInitialViewController() {
+            
+            let fileService: FileService = FileService()
+            let gitHubGiphyDetails = fileService.getData()!
+            
+            if !(gitHubGiphyDetails.isEmpty) {
+                let commit = CommitController.getInstance(gitHubGiphyDetails: gitHubGiphyDetails)
+                commitVC.addChild(commit)
+                viewControllerArray.append(commitVC)
+            }
         }
         
         self.setViewControllers(viewControllerArray, animated: false)
