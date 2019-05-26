@@ -18,15 +18,4 @@ public enum HttpError: Int, Error {
     case InternalServerError = 500
     case NotImplemented = 501
     case ServiceUnavailable = 503
-    
-    public static func getMessage(value: HttpError) -> String {
-        switch value {
-        case .NotFound:
-            return "unable to find resource"
-        case .TooManyRequests:
-            return "too many requests"
-        default:
-            return "unknown error"
-        }
-    }
 }

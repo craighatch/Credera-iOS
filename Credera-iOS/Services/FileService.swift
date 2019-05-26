@@ -24,9 +24,9 @@ class FileService {
             let data = try encoder.encode(inputData)
             let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(data, toFile: fileUrl.path)
             if isSuccessfulSave {
-                os_log("Meals successfully saved.", log: OSLog.default, type: .debug)
+                os_log("Data successfully successfully saved.", log: OSLog.default, type: .debug)
             } else {
-                os_log("Failed to save meals...", log: OSLog.default, type: .error)
+                os_log("Failed to save...", log: OSLog.default, type: .error)
             }
         } catch {
             fatalError(error.localizedDescription)

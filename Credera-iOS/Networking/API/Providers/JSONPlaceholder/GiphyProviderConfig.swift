@@ -8,6 +8,5 @@
 
 import Foundation
 struct GiphyProviderConfig {
-    // TODO: Inject baseUrl string from some scheme related config?
     static let baseUrl: String = "https://api.giphy.com"
 }

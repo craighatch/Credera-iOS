@@ -22,11 +22,6 @@ class CommitController: UICollectionViewController, NavigationHelper {
                                              bottom: 50.0,
                                              right: 20.0)
     
-    override func viewDidLoad() {
-        
-
-    }
-    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return gitHubGiphyDetails.count
     }

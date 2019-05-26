@@ -22,8 +22,8 @@ class GiphyApi {
         
         let apiKey: String = ""
         
-        if(apiKey.isEmpty) {
-            throw GiphyError(kind: GiphyError.ErrorKind.missingAPIkey)
+        if apiKey.isEmpty {
+            throw MissingApiKeyError()
         }
 
         let request = HttpRequest(
@@ -52,7 +52,8 @@ class GiphyApi {
         var path = url.path
         path.remove(at: path.startIndex) // remove the initial '/' from the path
         let imageRequest: ImageDownLoadRequest = ImageDownLoadRequest(httpMethod: HttpMethod.get, baseUrl: baseUrl, path: path)
-        let response = self.caller.downloadImage(imageRequest)
+        let response = self.caller.dataHttpRequest(imageRequest)
+        
         return response
     }
 }

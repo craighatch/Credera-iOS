@@ -13,11 +13,10 @@ class GitHubService {
     
     let caller: RequestCaller
     let gitHubApi: GitHubApi
-    let giphyService: GitHubGiphyIntegrationService
-    init() {
-        self.caller = RequestCaller()
+
+    init(caller: RequestCaller) {
+        self.caller = caller
         self.gitHubApi = GitHubApi(caller: self.caller)
-        self.giphyService = GitHubGiphyIntegrationService()
     }
     
     func getRepos(forUsername username: String, numberOfRepos repoLimit: Int) -> Promise<[GitHubData]> {
@@ -60,14 +59,14 @@ class GitHubService {
         let popularCommits = wordCount.sorted {$0.value > $1.value}
             .map { Commit(word: $0.key.lowercased(), occurrances: $0.value) }
             .map { self.removePunctuation(commit: $0) }
-            .filter { !WordUtil.boringWords.contains($0.word)}
+            .filter { !Constants.boringWords.contains($0.word)}
         
         return popularCommits
     }
     
     func removePunctuation(commit: Commit) -> Commit {
         var newWord = commit.word
-        WordUtil.punctuation.forEach({
+        Constants.punctuation.forEach({
             newWord = newWord.replacingOccurrences(of: $0, with: "")
         })
         return Commit(word: newWord, occurrances: commit.occurrances)

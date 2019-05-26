@@ -25,7 +25,7 @@ struct GihpyResponse: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         var data = try container.nestedUnkeyedContainer(forKey: CodingKeys.data)
-        while(!data.isAtEnd) {
+        while !data.isAtEnd {
             let element = try data.nestedContainer(keyedBy: DataCodingKeys.self)
             let images = try element.nestedContainer(keyedBy: DataCodingKeys.self, forKey: DataCodingKeys.images)
             let original_still = try images.nestedContainer(keyedBy: DataCodingKeys.self, forKey: DataCodingKeys.original_still)

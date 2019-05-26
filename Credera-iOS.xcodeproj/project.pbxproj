@@ -63,6 +63,8 @@
 		AFD8F73A223E0A1C00D9306F /* RequestCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB6945F22389FB2009473AE /* RequestCaller.swift */; };
 		AFD8F73B223E0A2200D9306F /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB694672238A4AC009473AE /* HttpRequest.swift */; };
 		D802FBAAD7A03585ABEB5D15 /* Pods_Credera_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9645AC57AFCE99B609B68B96 /* Pods_Credera_iOS.framework */; };
+		F401ED58229845B400DBEF77 /* MissingApiKeyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401ED57229845B400DBEF77 /* MissingApiKeyError.swift */; };
+		F401ED5C229B3CB500DBEF77 /* GitGiphyIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F401ED5B229B3CB500DBEF77 /* GitGiphyIntegration.swift */; };
 		F41B0C9D22613BC4006EFB8E /* GitHubApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B0C9C22613BC4006EFB8E /* GitHubApi.swift */; };
 		F41B0C9F22613C23006EFB8E /* GitHubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B0C9E22613C23006EFB8E /* GitHubResponse.swift */; };
 		F41B0CA12264E4DA006EFB8E /* GitHubProviderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41B0CA02264E4DA006EFB8E /* GitHubProviderConfig.swift */; };
@@ -72,7 +74,6 @@
 		F44A6102226F6ADD00CBFC75 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44A6101226F6ADD00CBFC75 /* ImageViewController.swift */; };
 		F44A6105226F6C1600CBFC75 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44A6104226F6C1600CBFC75 /* ImageView.swift */; };
 		F44A6109226F740700CBFC75 /* GiphyScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44A6108226F740700CBFC75 /* GiphyScrollView.swift */; };
-		F44A610B2270CD3900CBFC75 /* BoringWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44A610A2270CD3900CBFC75 /* BoringWords.swift */; };
 		F44A610D2270D6BE00CBFC75 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44A610C2270D6BE00CBFC75 /* FileService.swift */; };
 		F461600D2267A349006A3B72 /* GitHubCommitMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461600C2267A349006A3B72 /* GitHubCommitMessage.swift */; };
 		F461600F2267A3BD006A3B72 /* GitHubRepoReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461600E2267A3BD006A3B72 /* GitHubRepoReponse.swift */; };
@@ -86,7 +87,6 @@
 		F46160252268F63F006A3B72 /* GitHubGiphyIntegrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46160242268F63F006A3B72 /* GitHubGiphyIntegrationService.swift */; };
 		F461602922692873006A3B72 /* GiphyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461602822692873006A3B72 /* GiphyImage.swift */; };
 		F4836B5B228A0CD700B81117 /* IntegerPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4836B5A228A0CD700B81117 /* IntegerPicker.swift */; };
-		F4A1482B2289DB4E00D3872A /* GiphyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A1482A2289DB4E00D3872A /* GiphyError.swift */; };
 		F4AB58FB228F010B007198FA /* CommitNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB58FA228F010B007198FA /* CommitNavigationController.swift */; };
 /* End PBXBuildFile section */
 
@@ -175,6 +175,8 @@
 		E475FE564DC6E537E2D21637 /* Pods-Credera-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Credera-iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Credera-iOSTests/Pods-Credera-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ECBC3CE3EB062E28CC2601A7 /* Pods-Credera-iOSUITests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Credera-iOSUITests.staging.xcconfig"; path = "Pods/Target Support Files/Pods-Credera-iOSUITests/Pods-Credera-iOSUITests.staging.xcconfig"; sourceTree = "<group>"; };
 		F012FDF5EC092D0AABA6B74E /* Pods-Credera-iOSTests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Credera-iOSTests.staging.xcconfig"; path = "Pods/Target Support Files/Pods-Credera-iOSTests/Pods-Credera-iOSTests.staging.xcconfig"; sourceTree = "<group>"; };
+		F401ED57229845B400DBEF77 /* MissingApiKeyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissingApiKeyError.swift; sourceTree = "<group>"; };
+		F401ED5B229B3CB500DBEF77 /* GitGiphyIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitGiphyIntegration.swift; sourceTree = "<group>"; };
 		F41B0C9C22613BC4006EFB8E /* GitHubApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApi.swift; sourceTree = "<group>"; };
 		F41B0C9E22613C23006EFB8E /* GitHubResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubResponse.swift; sourceTree = "<group>"; };
 		F41B0CA02264E4DA006EFB8E /* GitHubProviderConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubProviderConfig.swift; sourceTree = "<group>"; };
@@ -184,7 +186,6 @@
 		F44A6101226F6ADD00CBFC75 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		F44A6104226F6C1600CBFC75 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		F44A6108226F740700CBFC75 /* GiphyScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyScrollView.swift; sourceTree = "<group>"; };
-		F44A610A2270CD3900CBFC75 /* BoringWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoringWords.swift; sourceTree = "<group>"; };
 		F44A610C2270D6BE00CBFC75 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		F461600C2267A349006A3B72 /* GitHubCommitMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubCommitMessage.swift; sourceTree = "<group>"; };
 		F461600E2267A3BD006A3B72 /* GitHubRepoReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepoReponse.swift; sourceTree = "<group>"; };
@@ -198,7 +199,6 @@
 		F46160242268F63F006A3B72 /* GitHubGiphyIntegrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubGiphyIntegrationService.swift; sourceTree = "<group>"; };
 		F461602822692873006A3B72 /* GiphyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyImage.swift; sourceTree = "<group>"; };
 		F4836B5A228A0CD700B81117 /* IntegerPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerPicker.swift; sourceTree = "<group>"; };
-		F4A1482A2289DB4E00D3872A /* GiphyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyError.swift; sourceTree = "<group>"; };
 		F4AB58FA228F010B007198FA /* CommitNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitNavigationController.swift; sourceTree = "<group>"; };
 		FF250F3FCF3A682573AA52AA /* Pods-Credera-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Credera-iOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Credera-iOSUITests/Pods-Credera-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -454,7 +454,7 @@
 		AF462207223752FC0053CB00 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				F4A148292289DB3400D3872A /* Errors */,
+				F401ED56229845A500DBEF77 /* Error */,
 				AFB6947F223AAA3A009473AE /* Models */,
 				AFB6947B223AA9ED009473AE /* UserService.swift */,
 				AFB6947D223AAA0C009473AE /* UserServiceImpl.swift */,
@@ -525,9 +525,9 @@
 		AFB6947F223AAA3A009473AE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F44A610A2270CD3900CBFC75 /* BoringWords.swift */,
 				F46160162267CBD1006A3B72 /* GitHubData.swift */,
 				AFB69489223AD56E009473AE /* User.swift */,
+				F401ED5B229B3CB500DBEF77 /* GitGiphyIntegration.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -620,6 +620,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F401ED56229845A500DBEF77 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				F401ED57229845B400DBEF77 /* MissingApiKeyError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		F44A60FE226F67C300CBFC75 /* ImageController */ = {
 			isa = PBXGroup;
 			children = (
@@ -657,14 +665,6 @@
 				F4AB58FA228F010B007198FA /* CommitNavigationController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		F4A148292289DB3400D3872A /* Errors */ = {
-			isa = PBXGroup;
-			children = (
-				F4A1482A2289DB4E00D3872A /* GiphyError.swift */,
-			);
-			path = Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -940,6 +940,7 @@
 				AFB6946C22393EB0009473AE /* HttpResponse.swift in Sources */,
 				F46160212267DDB0006A3B72 /* GiphyProviderConfig.swift in Sources */,
 				AFBD0D1D2242E4AA00123314 /* PhotosApi.swift in Sources */,
+				F401ED5C229B3CB500DBEF77 /* GitGiphyIntegration.swift in Sources */,
 				AFBD0D152241BC1900123314 /* NetworkError.swift in Sources */,
 				F461600D2267A349006A3B72 /* GitHubCommitMessage.swift in Sources */,
 				F46160192267CE41006A3B72 /* GitHubService.swift in Sources */,
@@ -956,10 +957,8 @@
 				AFD1E22C223A84DF00131E4A /* NavigationIntermediateViewController.swift in Sources */,
 				5910782321DD252A0017CA21 /* MainTabBarAppViewController.swift in Sources */,
 				F461600F2267A3BD006A3B72 /* GitHubRepoReponse.swift in Sources */,
-				F44A610B2270CD3900CBFC75 /* BoringWords.swift in Sources */,
 				F46160252268F63F006A3B72 /* GitHubGiphyIntegrationService.swift in Sources */,
 				F461602922692873006A3B72 /* GiphyImage.swift in Sources */,
-				F4A1482B2289DB4E00D3872A /* GiphyError.swift in Sources */,
 				F41B0CA12264E4DA006EFB8E /* GitHubProviderConfig.swift in Sources */,
 				F4836B5B228A0CD700B81117 /* IntegerPicker.swift in Sources */,
 				F44A610D2270D6BE00CBFC75 /* FileService.swift in Sources */,
@@ -982,6 +981,7 @@
 				AFB6947C223AA9ED009473AE /* UserService.swift in Sources */,
 				AFBD0D122241B03400123314 /* HttpError.swift in Sources */,
 				5949D1AD219CBBAC006D2FF0 /* AppDelegate.swift in Sources */,
+				F401ED58229845B400DBEF77 /* MissingApiKeyError.swift in Sources */,
 				AFB694682238A4AC009473AE /* HttpRequest.swift in Sources */,
 				5910783A21DD2BD80017CA21 /* SecondViewController.swift in Sources */,
 				5910783221DD29E00017CA21 /* UIColor+Extension.swift in Sources */,

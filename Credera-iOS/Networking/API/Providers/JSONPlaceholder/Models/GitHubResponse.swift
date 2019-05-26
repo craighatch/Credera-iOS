@@ -22,9 +22,8 @@ struct GitHubResponse: Decodable {
     }
     
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: MyStructKeys.self) // defining our (keyed) container
-        let name: String = try container.decode(String.self, forKey: .name) // extracting the data
-        //let id: Int = try container.decode(Int.self, forKey: .id) // extracting the data
+        let container = try decoder.container(keyedBy: MyStructKeys.self)
+        let name: String = try container.decode(String.self, forKey: .name)
         self.init(name: name)
     }
 

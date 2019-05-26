@@ -18,95 +18,86 @@ class FirstViewController: UIViewController {
     
     let passedAlongInformationBetweenVC: String = "This is an example of passing information from one VC to another"
     
-    @IBOutlet weak var navigationStatusLabel: UILabel!
-    
-    //    @IBOutlet weak var repoPicker: UIPickerView!
-    
     let salutations = ["1", "2", "3", "4"]
     @IBOutlet weak var numberOfRepos: UITextField!
     
     @IBOutlet weak var gitHubUsername: UITextField!
     
+    @IBOutlet weak var wordsPerRepo: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.titleView = AppHeaderView()
         let repoPicker = IntegerPicker(
             textField: numberOfRepos,
             frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height/4),
-            selectionHandler: { string in
-                print("qwer: \(string)")
-                print("repos: \(self.numberOfRepos.text)")
+            selectionHandler: { _ in
+                self.view.endEditing(true)
+        })
+        
+        let wordPicker = IntegerPicker(
+            textField: wordsPerRepo,
+            frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height/4),
+            selectionHandler: { _ in
+                self.view.endEditing(true)
+                
         })
         self.numberOfRepos.inputView = repoPicker
-        
-//        banner.translatesAutoresizingMaskIntoConstraints = false
-//        banner.topAnchor.constraint(equalTo: view.topAnchor, constant: 10)
-//        banner.widthAnchor.constraint(equalToConstant: 300)
-//        banner.heightAnchor.constraint(equalToConstant: 50)
-
-        
-        //        let pickerView = UIPickerView()
-        //        pickerView.delegate = self
-        //        numberOfRepos.inputView = pickerView
+        self.wordsPerRepo.inputView = wordPicker
     }
     
-    @IBAction func navigationExampleButtonClicked(_ sender: Any) {
-        let navigationIntermediateScreen = NavigationIntermediateViewController.getInstance(passedInformation: passedAlongInformationBetweenVC, delegate: self as NavigationCompletedProtocol)
-        navigationController?.pushViewController(navigationIntermediateScreen, animated: true)
-    }
-    
-    @IBAction func loadFromFile(_ sender: UIButton) {
-        let fileService: FileService = FileService()
-        let data = fileService.getData()!
-        self.goToCommitPage(gitHubAndGiphyData: data)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //close UIPicker when select outside
+        self.view.endEditing(true)
     }
     
     @IBAction func getRepos(_ sender: UIButton) {
         
-        if((gitHubUsername.text  ?? "").trimmingCharacters(in: .whitespaces).isEmpty) {
-            let alert = UIAlertController(title: "Did you enter a username?", message: "You should probably do that", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "My bad", style: .default, handler: nil))
-            self.present(alert, animated: true)
+        guard let repos: Int = Int(numberOfRepos.text!) else {
+            alertMissingField(title: "Did you enter \"Number Of Repos\"?")
+            return
+        }
+        
+        guard let commitWords: Int = Int(wordsPerRepo.text!) else {
+            alertMissingField(title: "Did you enter \"Words Per Repo\"?")
+            return
+        }
+        
+        if (gitHubUsername.text  ?? "").trimmingCharacters(in: .whitespaces).isEmpty {
+            alertMissingField(title: "Did you enter a username?")
         } else {
-            self.loadDataAndGoToCommitPage(gitHubUsername: gitHubUsername.text!)
+            self.loadDataAndGoToCommitPage(gitHubUsername: gitHubUsername.text!,
+                                           numberOfCommitWords: commitWords,
+                                           numberOfRepos: repos)
         }
     }
     
-    func loadDataAndGoToCommitPage(gitHubUsername: String) {
-        let gitHubService: GitHubService = GitHubService()
+    func loadDataAndGoToCommitPage(gitHubUsername: String, numberOfCommitWords: Int, numberOfRepos: Int) {
         let giphyService: GitHubGiphyIntegrationService = GitHubGiphyIntegrationService()
         
-        gitHubService.getRepos(forUsername: gitHubUsername, numberOfRepos: 1)
-            .then { repos in
-                gitHubService.populateCommonCommitWords(limitedTo: 2, withRepos: repos)
-                    .then { reposAndCommits in
-                        try giphyService.getImagesForAllReposAndCommits(withGitHubData: reposAndCommits)
-                            .then { gitHubAndGiphyData in
-                                let fileService: FileService = FileService()
-                                fileService.saveToDevice(withData: gitHubAndGiphyData)
-                                self.goToCommitPage(gitHubAndGiphyData: gitHubAndGiphyData)
-                            }.catch { error in
-                                print(error)
-                                if let httpError = error as? HttpError {
-                                    self.alertError(service: "Giphy", message: HttpError.getMessage(value: httpError))
-                                } else {
-                                    self.alertError(service: "Giphy", message: "unknown error")
-                                }
-                        }
-                }
+        giphyService.getGiphyImageForMostCommonCommitWords(forUserName: gitHubUsername, numberOfRepos: numberOfRepos, numberofWords: numberOfCommitWords)
+            .then { gitHubAndGiphyData in
+                let fileService: FileService = FileService()
+                fileService.saveToDevice(withData: gitHubAndGiphyData)
+                self.goToCommitPage(gitHubAndGiphyData: gitHubAndGiphyData)
             }.catch { error in
-                print(error)
-                if let httpError = error as? HttpError {
-                    self.alertError(service: "GitHub", message: HttpError.getMessage(value: httpError))
-                } else {
-                    self.alertError(service: "GitHub", message: "unknown error")
+                switch error {
+                case is MissingApiKeyError:
+                    self.alertError(errorMessage: "Giphy needs an API key. Ask Craig for his.")
+                default:
+                    self.alertError(errorMessage: error.localizedDescription)
                 }
         }
     }
     
-    func alertError(service: String, message: String) {
-        let alert = UIAlertController(title: "We're sorry!", message: "\(message) from \(service)", preferredStyle: .alert)
+    func alertError(errorMessage: String) {
+        let alert = UIAlertController(title: "We're sorry!", message: "\(errorMessage)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Well alright then", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
+    func alertMissingField(title: String) {
+        let alert = UIAlertController(title: title, message: "You should probably do that", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "My bad", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
     
@@ -116,38 +107,3 @@ class FirstViewController: UIViewController {
     }
     
 }
-
-extension FirstViewController: NavigationCompletedProtocol {
-    func showNavigationCompleted() {
-        navigationStatusLabel.text = "Navigation to Final VC has been completed"
-        navigationStatusLabel.textColor = UIColor.red
-    }
-}
-
-//extension FirstViewController: UIPickerViewDataSource, UIPickerViewDelegate{
-//
-//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        return 1
-//    }
-//
-//    // Sets number of columns in picker view
-//    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-//        return 1
-//    }
-//
-//    // Sets the number of rows in the picker view
-//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        return salutations.count
-//    }
-//
-//    // This function sets the text of the picker view to the content of the "salutations" array
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        return salutations[row]
-//    }
-//
-//    // When user selects an option, this function will set the text of the text field to reflect
-//    // the selected option.
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        numberOfRepos.text = salutations[row]
-//    }
-//}

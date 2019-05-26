@@ -23,7 +23,6 @@ class MainTabBarAppViewController: UITabBarController, UITabBarControllerDelegat
             viewControllerArray.append(firstVC)
         }
     
-        
         if let commitVC: UIViewController = UIStoryboard(name: "CommitCollectionView", bundle: Bundle.main).instantiateInitialViewController() {
             
             let fileService: FileService = FileService()

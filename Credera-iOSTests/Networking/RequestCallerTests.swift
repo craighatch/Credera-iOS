@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import OHHTTPStubs
+//import OHHTTPStubs
 import Promises
 
 class RequestCallerTests: XCTestCase {
